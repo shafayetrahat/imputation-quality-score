@@ -1,0 +1,26 @@
+BootStrap: docker
+From: python:3.10.6
+
+%post
+    apt-get -y update
+    pip install -r requirements.txt
+    chmod 777 /mnt
+    apt-get update && apt-get install -y bzip2 g++ libbz2-dev libcurl4-openssl-dev \
+    liblzma-dev make ncurses-dev wget zlib1g-dev
+    wget -c https://github.com/samtools/bcftools/releases/download/1.16/bcftools-1.16.tar.bz2
+    tar -xvjf bcftools-1.16.tar.bz2
+    cd bcftools-1.16
+    ./configure --prefix=/usr/local/
+    make -j16
+    make install
+    rm -rf bcftools-1.16*
+%environment
+    export LC_ALL=C
+%files
+    ./groundtruth.csv /
+    ./imp_cont/* /
+%runscript
+    python /main.py
+
+%labels
+    Author Shafayetrahat
