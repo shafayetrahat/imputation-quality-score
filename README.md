@@ -6,3 +6,6 @@ More details can be found https://journals.plos.org/plosone/article?id=10.1371/j
 
 The dataset for this project can be found https://doi.org/10.5281/zenodo.15665400.
 
+Final outcome looks somwthing like this 
+
+![iqs](https://github.com/user-attachments/assets/1bfd8e91-4951-4132-b994-7f6e66d04bf7)
